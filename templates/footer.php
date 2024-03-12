@@ -28,8 +28,11 @@
 
     <script src="assets/dist/js/adminlte.js?v=3.2.0"></script>
 
-    <script src="assets/dist/js/pages/dashboard.js"></script>
+    <!--script src="assets/dist/js/pages/dashboard.js"></script-->
 
     <!--Custom Scripts-->
+    <!--JS Classes-->
+    <script src="assets/js/oop/CSSInteractor.js"></script>
+    <script src="assets/js/index.js"></script>
 </body>
 </html>

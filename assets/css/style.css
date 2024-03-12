@@ -1,0 +1,110 @@
+*
+{
+    box-sizing: border-box;
+}
+
+body
+{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    min-height: 100vh;
+}
+
+#key-person-pic
+{
+    width: 150px;
+}
+
+#main-hero
+{
+    background-color: rgba(255, 255, 255, 0.604);
+}
+
+.flex-0
+{
+    flex-grow: 0;
+}
+
+.flex-085
+{
+    flex-grow: 0.85;
+}
+
+.flex-080
+{
+    flex-grow: 0.80;
+}
+
+.flex-070
+{
+    flex-grow: 0.70;
+}
+
+.flex-065
+{
+    flex-grow: 0.65;
+}
+
+.flex-015
+{
+    flex-grow: 0.15;
+}
+
+.flex-020
+{
+    flex-grow: 0.20;
+}
+
+.flex-030
+{
+    flex-grow: 0.30;
+}
+
+.flex-035
+{
+    flex-grow: 0.35;
+}
+
+.bg-img-container
+{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.bg-img-bluish-hue
+{
+    background-color: rgba(109, 177, 245, 0.602); /* Blueish-greish hue with transparency */
+    background-blend-mode: overlay; /* Blend the background image and color */
+}
+
+.bg-lock-img
+{
+    background-image: url("../img/locks.jpg");
+}
+
+/* Default width for small screens */
+.hero{
+    width: 100%;
+}
+
+.fsize-150
+{
+    font-size: 1.5rem;
+}
+
+/* Adjust width for medium screens */
+@media (min-width: 576px) {
+    .hero{
+        width: 75%;
+    }
+}
+
+/* Adjust width for large and larger screens */
+@media (min-width: 992px) {
+    .hero {
+        width: 50%;
+    }
+}

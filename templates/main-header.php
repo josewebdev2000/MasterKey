@@ -1,8 +1,8 @@
-<header class="fixed-top">
+<header>
     <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="index.php">
             <img src="assets/img/key.png" width="30" height="30" class="d-inline-block align-top mr-2" alt="Navbar Brand Image">
-            <span class="h3">MasterKey<span>
+            MasterKey
          </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content-collapse" aria-controls="navbar-content-collapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
