@@ -33,6 +33,24 @@
     <!--Custom Scripts-->
     <!--JS Classes-->
     <script src="assets/js/oop/CSSInteractor.js"></script>
+
+    <!--Page Scripts-->
     <script src="assets/js/index.js"></script>
+
+    <?php require_once "helpers/page-helpers.php";
+
+        // Grab the name of the current page
+        $currentPage = getActualPageName();
+
+        // Dynamically Load Content For Each Page
+        switch ($currentPage)
+        {
+            case "contact.php":
+            {
+                echo '<script src="assets/js/contact.js"></script>';
+            }
+        }
+        
+    ?>
 </body>
 </html>

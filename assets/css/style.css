@@ -17,9 +17,39 @@ body
     width: 150px;
 }
 
-#main-hero
+.no-display
+{
+    display: none;
+}
+
+.gray-hero
 {
     background-color: rgba(255, 255, 255, 0.604);
+}
+
+.dark-green-hero
+{
+    background-color: rgba(197, 213, 187, 0.129);
+}
+
+.dark-green-2-hero
+{
+    background-color: rgba(167, 199, 144, 0.4);
+}
+
+.dark-peach-hero
+{
+    background-color: rgba(252, 230, 214, 0.5);
+}
+
+.opa-09
+{
+    opacity: 0.9;
+}
+
+.rborder-25
+{
+    border-radius: 25px;
 }
 
 .flex-0
@@ -80,9 +110,37 @@ body
     background-blend-mode: overlay; /* Blend the background image and color */
 }
 
+.bg-img-greenish-hue
+{
+    background-color: rgba(155, 244, 199, 0.502); 
+    background-blend-mode: overlay;
+}
+
+.bg-img-peach-hue 
+{
+    background-color: rgba(255, 218, 185, 0.6); /* Peach hue with transparency */
+    background-blend-mode: overlay;
+}
+
 .bg-lock-img
 {
     background-image: url("../img/locks.jpg");
+}
+
+.bg-circular-lock-img
+{
+    background-image: url("../img/circular-key.jpg");
+}
+
+.bg-envelope-img
+{
+    background-image: url("../img/envelope.jpg");
+}
+
+.modal-backdrop
+{
+    z-index: -1;
+    opacity: 0;
 }
 
 /* Default width for small screens */
@@ -93,6 +151,26 @@ body
 .fsize-150
 {
     font-size: 1.5rem;
+}
+
+.fsize-120
+{
+    font-size: 1.2rem;
+}
+
+.hover-blue:hover
+{
+    color: rgb(2, 49, 101);
+}
+
+.clicky
+{
+    cursor: pointer;
+}
+
+.trans-color-03
+{
+    transition: color 0.3s ease;
 }
 
 /* Adjust width for medium screens */

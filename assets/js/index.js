@@ -2,7 +2,12 @@
 
 function main()
 {
-    console.log("jquery Works");
+    console.log("jQuery Works");
+}
+
+function addInitialClasses()
+{
+    
 }
 
 $(document).ready(main);

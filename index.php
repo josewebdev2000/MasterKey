@@ -2,7 +2,7 @@
 <?php require_once "templates/main-header.php"; ?>
 
 <main class="container-fluid bg-img-container bg-lock-img bg-img-bluish-hue flex-065 d-flex justify-content-center align-items-center">
-  <div class="py-5 px-5 text-center m-5 hero" id="main-hero">
+  <div class="py-5 px-5 text-center m-5 hero gray-hero">
           <img class="d-block mx-auto mb-4 img-fluid" id="key-person-pic" src="assets/img/key-person.png" alt="Key Person Image">
           <h1 class="display-5 fw-bold">MasterKey Password Manager</h1>
           <div class="col-lg-6 mx-auto">
