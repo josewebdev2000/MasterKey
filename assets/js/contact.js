@@ -2,11 +2,7 @@
 
 function mainContact()
 {
-    $('.summernote').summernote({
-        height: 300,
-        width: "100%",
-        placeholder: "Write your request here"
-    });
+    initializeSummerNote();
 }
 
 function initializeSummerNote()

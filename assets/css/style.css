@@ -122,6 +122,12 @@ body
     background-blend-mode: overlay;
 }
 
+.bg-img-light-gray-hue {
+    background-color: rgba(245, 245, 245, 0.749); /* Light Gray with 90% Opacity */
+    background-blend-mode: overlay;
+}
+
+
 .bg-lock-img
 {
     background-image: url("../img/locks.jpg");
@@ -135,6 +141,11 @@ body
 .bg-envelope-img
 {
     background-image: url("../img/envelope.jpg");
+}
+
+.bg-locked-keyboard-img
+{
+    background-image: url("../img/locked-keyboard.jpg");
 }
 
 .modal-backdrop
@@ -161,6 +172,11 @@ body
 .hover-blue:hover
 {
     color: rgb(2, 49, 101);
+}
+
+.hover-gray:hover
+{
+    color: rgb(111, 111, 111);
 }
 
 .clicky

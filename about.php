@@ -70,7 +70,7 @@
                     <div class="card dark-green-2-hero m-0">
                         <div class="card-header" id="faq-1">
                             <h5 class="mb-0">
-                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                <button class="btn btn-link text-white" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                                     How do I change my password in case I forget it?
                                 </button>
                             </h5>
@@ -84,7 +84,7 @@
                     <div class="card dark-green-2-hero m-0">
                         <div class="card-header" id="faq-2">
                             <h5 class="mb-0">
-                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <button class="btn btn-link text-white" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                     How do I manage my account tokens?
                                 </button>
                             </h5>
@@ -98,7 +98,7 @@
                     <div class="card dark-green-2-hero m-0">
                         <div class="card-header" id="faq-3">
                             <h5 class="mb-0">
-                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <button class="btn btn-link text-white" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                     How can I manage my credentials in <em><b>MasterKey</b></em>?
                                 </button>
                             </h5>
@@ -112,7 +112,7 @@
                     <div class="card dark-green-2-hero m-0">
                         <div class="card-header" id="faq-4">
                             <h5 class="mb-0">
-                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                <button class="btn btn-link text-white" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                                     How are my passwords secured in my app?
                                 </button>
                             </h5>
@@ -122,6 +122,21 @@
                                 The master password of your <em><b>MasterKey</b></em> account undergoes a one-way encryption process that cannot be reverted.
                                 On the other hand, the passwords and security questions you store in <em><b>MasterKey</b></em> are encrypted in a reversible way in our database.
                                 You will be able to see your decrypted passwords and security questions by providing your account tokens. 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card dark-green-2-hero m-0">
+                        <div class="card-header" id="faq-5">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link text-white" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    How do I recover my account if I lose my account tokens?
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseFive" class="collapse" aria-labelledby="faq-5" data-parent="#accordion">
+                            <div class="card-body">
+                                Unfortunately, in case you lose your <em><b>MasterKey</b></em> account tokens. You'll account you'll be <b>frozen</b>.
+                                Hence, you'll be unable to use your account. It is required for you to delete this account and create a new one.
                             </div>
                         </div>
                     </div>

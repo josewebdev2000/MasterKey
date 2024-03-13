@@ -48,6 +48,13 @@
             case "contact.php":
             {
                 echo '<script src="assets/js/contact.js"></script>';
+                break;
+            }
+
+            case "privacy.php":
+            {
+                echo '<script src="assets/js/privacy.js"></script>';
+                break;
             }
         }
         
