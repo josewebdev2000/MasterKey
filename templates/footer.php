@@ -32,6 +32,7 @@
 
     <!--Custom Scripts-->
     <!--JS Classes-->
+    <script src="assets/js/oop/ScrollToTopBtn.js"></script>
     <script src="assets/js/oop/CSSInteractor.js"></script>
 
     <!--Page Scripts-->

@@ -10,18 +10,25 @@
 
     <!--Sticky Btn Group-->
     <div class="row sticky-top">
-        <div class="col-12 mb-4 d-flex justify-content-center">
-            <section class="text-center p-3 rborder-25 gray-hero">
-                <div class="btn-group" role="group" aria-label="Privacy Sections">
-                    <button type="button" class="btn btn-lg btn-light"><a href="#overview">Overview</a></button>
-                    <button type="button" class="btn btn-lg btn-light"><a href="#personal-information">Personal Information</a></button>
-                    <button type="button" class="btn btn-lg btn-light"><a href="#information-usage">Information Usage</a></button>
-                    <button type="button" class="btn btn-lg btn-light"><a href="#cookies-and-tracking">Cookies And Tracking</a></button>
-                    <button type="button" class="btn btn-lg btn-light"><a href="#data-storage-and-security">Data Storage And Security</a></button>
-                    <button type="button" class="btn btn-lg btn-light"><a href="#data-sharing">Data Sharing</a></button>
-                    <button type="button" class="btn btn-lg btn-light"><a href="#user-controls-and-options">User Controls And Options</a></button>
+        <div id="privacy-navbar-container" class="col-12 mb-4 d-flex justify-content-lg-center justify-content-end">
+            <nav class="navbar navbar-expand-lg navbar-light transparent-hero d-flex justify-content-lg-center justify-content-end" id="privacy-navbar">
+                <button id="privacy-sections-toggler" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <section class="p-3 rborder-25 gray-hero">
+                        <div class="btn-group" id="privacy-sections-group" role="group" aria-label="Privacy Sections">
+                            <button type="button" class="btn btn-lg btn-light"><a href="#overview">Overview</a></button>
+                            <button type="button" class="btn btn-lg btn-light"><a href="#personal-information">Personal Information</a></button>
+                            <button type="button" class="btn btn-lg btn-light"><a href="#information-usage">Information Usage</a></button>
+                            <button type="button" class="btn btn-lg btn-light"><a href="#cookies-and-tracking">Cookies And Tracking</a></button>
+                            <button type="button" class="btn btn-lg btn-light"><a href="#data-storage-and-security">Data Storage And Security</a></button>
+                            <button type="button" class="btn btn-lg btn-light"><a href="#data-sharing">Data Sharing</a></button>
+                            <button type="button" class="btn btn-lg btn-light"><a href="#user-controls-and-options">User Controls And Options</a></button>
+                        </div>
+                    </section>
                 </div>
-            </section>
+            </nav>
         </div>
     </div>
 

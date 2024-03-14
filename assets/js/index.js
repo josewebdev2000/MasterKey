@@ -2,7 +2,7 @@
 
 function main()
 {
-    console.log("jQuery Works");
+    
 }
 
 function addInitialClasses()

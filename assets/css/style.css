@@ -17,6 +17,11 @@ body
     width: 150px;
 }
 
+#privacy-sections-toggler:focus
+{
+    text-align: center;
+}
+
 .no-display
 {
     display: none;
@@ -40,6 +45,11 @@ body
 .dark-peach-hero
 {
     background-color: rgba(252, 230, 214, 0.5);
+}
+
+.transparent-hero
+{
+    background-color: transparent;
 }
 
 .opa-09
