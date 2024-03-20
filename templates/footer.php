@@ -4,6 +4,8 @@
 
     <script src="assets/plugins/jquery-ui/jquery-ui.min.js"></script>
 
+    <script src="assets/plugins/jquery-validation/jquery.validate.min.js"></script>
+
     <script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <script src="assets/plugins/chart.js/Chart.min.js"></script>
@@ -31,6 +33,14 @@
     <!--script src="assets/dist/js/pages/dashboard.js"></script-->
 
     <!--Custom Scripts-->
+
+    <!--JS Constants-->
+    <script src="assets/js/constants.js"></script>
+
+    <!--JS Snippets-->
+    <script src="assets/js/snippets/alerts/error.js"></script>
+    <script src="assets/js/snippets/alerts/success.js"></script>
+
     <!--JS Classes-->
     <script src="assets/js/oop/ScrollToTopBtn.js"></script>
     <script src="assets/js/oop/CSSInteractor.js"></script>
@@ -38,7 +48,7 @@
     <!--Page Scripts-->
     <script src="assets/js/index.js"></script>
 
-    <?php require_once "helpers/page-helpers.php";
+    <?php require_once "helpers/index.php";
 
         // Grab the name of the current page
         $currentPage = getActualPageName();

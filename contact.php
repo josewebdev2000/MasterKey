@@ -26,7 +26,7 @@
                 <div class="card-header">
                     <h3 class="text-center">Contact Form</h3>
                 </div>
-                <form action="contact.php" method="POST">
+                <form id="contact-form" enctype="multipart/form-data" novalidate>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6 input-group mb-3">
@@ -36,6 +36,8 @@
                                     </span>
                                 </div>
                                 <input class="form-control" type="text" name="name" placeholder="Name" id="name" required>
+                                <div class="valid-tooltip name">Name looks good</div>
+                                <div class="invalid-tooltip name"></div>
                             </div>
                             <div class="col-md-6 input-group mb-3">
                                 <div class="input-group-prepend">
@@ -43,7 +45,9 @@
                                         <i class="fas fa-envelope"></i>
                                     </span>
                                 </div>
-                                <input type="text" class="form-control" type="email" placeholder="Email Address" id="email" required>
+                                <input class="form-control" name="email" type="email" placeholder="Email Address" id="email" required>
+                                <div class="valid-tooltip email">Email looks good</div>
+                                <div class="invalid-tooltip email"></div>
                             </div>
                         </div>
                         <div class="row">
@@ -53,7 +57,9 @@
                                         <i class="fas fa-marker"></i>
                                     </span>
                                 </div>
-                                <input type="text" class="form-control" type="text" placeholder="Subject" id="subject" required>
+                                <input class="form-control" name="subject" type="text" placeholder="Subject" id="subject" required>
+                                <div class="valid-tooltip subject">Subject looks good</div>
+                                <div class="invalid-tooltip subject"></div>
                             </div>
                         </div>
                         <div class="row">
@@ -63,22 +69,30 @@
                                         <i class="fas fa-exclamation-triangle"></i>
                                     </span>
                                 </div>
-                                <select class="custom-select" name="urgency" required>
-                                    <option value="" disabled selected>Select Urgency Status</option>
+                                <select id="urgency" class="custom-select form-control" name="urgency" required>
+                                    <option value="" selected>Select Urgency Status</option>
                                     <option value="Low">Low</option>
                                     <option value="Medium">Medium</option>
                                     <option value="High">High</option>
                                 </select>
+                                <div class="valid-tooltip urgency">Valid Urgency Status Chosen</div>
+                                <div class="invalid-tooltip urgency">Choose a valid option</div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col input-group">
-                                <textarea class="summernote" name="request"></textarea>
+                                <textarea class="summernote form-control" name="request" id="request" required></textarea>
+                                <div class="valid-tooltip request">Message looks good</div>
+                                <div class="invalid-tooltip request"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col" id="form-alerts-container">
                             </div>
                         </div>
                     </div>
                     <div class="card-footer m-0 p-0">
-                        <button type="submit" class="btn btn-block btn-light">Send</button>
+                        <button type="submit" name="send" id="send" class="btn btn-block btn-light">Send</button>
                     </div>
                 </form>
             </div>
