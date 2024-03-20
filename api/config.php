@@ -1,13 +1,20 @@
 <?php 
+/* Set error reporting level
+error_reporting(E_ALL);
 
-// Read file that contains creds
-$creds_db_lines = file("db_creds.txt");
+// Enable displaying errors
+ini_set('display_errors', 1);*/
+
+require_once "../envs.php";
+
+// Load envs
+loadEnvVarsWhenRequired();
 
 // Grab each DB detail
-$db_host = trim($creds_db_lines[0]);
-$db_name = trim($creds_db_lines[1]);
-$db_user = trim($creds_db_lines[2]);
-$db_pass = trim($creds_db_lines[3]);
+$db_host = $_ENV["DB_HOST"];
+$db_name = $_ENV["DB_NAME"];
+$db_user = $_ENV["DB_USER"];
+$db_pass = $_ENV["DB_PASS"];
 
 // Create a new OOP MySQLi Object
 $conn = new mysqli($db_host, $db_user, $db_pass, $db_name);

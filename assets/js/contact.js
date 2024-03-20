@@ -5,6 +5,9 @@ function mainContact()
     // Initialize Summernote to it looks pretty
     initializeSummerNote();
 
+    // reset contact form on reload
+    resetContactForm();
+
     // Validate the contact form
     validateContactForm();
 }
@@ -18,15 +21,20 @@ function initializeSummerNote()
     });
 }
 
+function resetContactForm()
+{
+    $(window).on("beforeunload", function () {
+        $("#name").val("");
+        $("#email").val("");
+        $("#subject").val("");
+        $("#urgency").val("");
+        $("#request").summernote("code", "");
+    });
+}
+
 /** Write Code for Front-End Contact Form Validation and AJAX Sending */
 function validateContactForm()
 {
-    // Validate input elements as soon as the appear on the page if they are not empty
-    initialNameValidation();
-    initialEmailValidation();
-    initialSubjectValidation();
-    initialUrgencyValidation();
-
     // Validate the name input
     $("#name").on({
         input: nameValidate,
@@ -124,8 +132,15 @@ function validateContactForm()
                     `);
                     sendBtn.prop("disabled", true);
                 },
-                success: function () {},
-                error: function () {},
+                success: function (response) {
+                    displayFormSuccessAlert("form-alerts-container", response["success"]);
+                    
+                },
+                error: function (xhr, status, error) {
+                    const errorJsonResponse = xhr.responseJSON;
+                    displayFormErrorAlert("form-alerts-container", errorJsonResponse["error"]);
+
+                },
                 complete: function () {
                     // Enable Send Button To Avoid Request Before Response
                     const sendBtn = $("#send");
@@ -136,71 +151,6 @@ function validateContactForm()
         }
 
     });
-}
-
-function initialNameValidation()
-{
-    /** Run to validate Name as soon as the script is loaded */
-    const initialName = $("#name").val();
-
-    if (initialName.trim().length > 0)
-    {
-        nameValidate();
-        $(".valid-tooltip.name").hide();
-        $(".invalid-tooltip.name").hide();
-    }
-}
-
-function initialEmailValidation()
-{
-    /** Run to validate Email as soon as the script is loaded */
-    const initialEmail = $("#email").val();
-
-    if (initialEmail.trim().length > 0)
-    {
-        emailValidate();
-        $(".valid-tooltip.email").hide();
-        $(".invalid-tooltip.email").hide();
-    }
-}
-
-function initialSubjectValidation()
-{
-    /** Run to validate Subject as soon as the script is loaded */
-    const initialSubject = $("#subject").val();
-
-    if (initialSubject.trim().length > 0)
-    {
-        subjectValidate();
-        $(".valid-tooltip.subject").hide();
-        $(".invalid-tooltip.subject").hide();
-    }
-}
-
-function initialUrgencyValidation()
-{
-    /** Run to validate Urgency as soon as the script is loaded */
-    const initialUrgency = $("#urgency").val();
-
-    if (initialUrgency.trim().length > 0)
-    {
-        urgencyValidate();
-        $(".valid-tooltip.urgency").hide();
-        $(".invalid-tooltip.urgency").hide();
-    }
-}
-
-function initialRequestValidation()
-{
-    /** Run to validate Request as soon as the script is loaded */
-    const initialRequest = $("#request").summernote("code");
-
-    if (initialRequest.trim().length > 0)
-    {
-        requestValidate();
-        $(".valid-tooltip.request").hide();
-        $(".invalid-tooltip.request").hide();
-    }
 }
 
 function formControlFocusValidate(form_control_id)
@@ -348,13 +298,13 @@ function displayFormErrorAlert(alert_container_id ,error_msg)
 function displayFormSuccessAlert(alert_container_id, success_msg)
 {
     // Create Success Alert
-    const sAlert = $(errorAlert(success_msg));
+    const sAlert = $(successAlert(success_msg));
 
     // Append the alert to the container
     $(`#${alert_container_id}`).append(sAlert);
 
     // Fade in the alert in 150 mls
-    setTimeout(() => eAlert.addClass("show"), 150);
+    setTimeout(() => sAlert.addClass("show"), 150);
 }
 
 function removeAlertFromContainer(alert_container_id, alert_selector)
