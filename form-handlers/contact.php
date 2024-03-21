@@ -262,7 +262,7 @@ function send_html_email($email_assoc, $email_template_building_function)
         // return var_dump($mailer->Username);
 
         // Set a timeout for the send operation
-        $timeout_seconds = 7; // Adjust as needed
+        $timeout_seconds = 30; // Adjust as needed
         $mailer->Timeout = $timeout_seconds;
 
         // Send the email
