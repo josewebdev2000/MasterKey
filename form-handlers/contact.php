@@ -119,33 +119,33 @@ function build_no_reply_email_for_user($email_assoc)
 
      // Make a switch statement for the days value and Bootstrap class for urgency status
      $days = null;
-     $b_class = null;
+     $color = null;
 
      switch (strtolower($email_assoc["urgency"]))
      {
         case "high":
         {
             $days = 7;
-            $b_class = "text-danger";
+            $color = "red";
             break;   
         }
 
         case "medium":
         {
             $days = 4;
-            $b_class = "text-warning";
+            $color = "yellow";
             break;
         }
 
         default:
         {
             $days = 2;
-            $b_class = "text-info";
+            $color = "green";
         }
      }
 
      // Prepare Urgency Span the template will contain
-     $urgency_span = "<span class='$b_class'>". strtoupper($email_assoc["urgency"]) ."</span>";
+     $urgency_span = "<span style='color: $color'>". strtoupper($email_assoc["urgency"]) ."</span>";
 
      // Grab the HTML email template for no reply
      $no_reply_template_string = file_get_contents("../email-templates/no-reply.html");
@@ -183,30 +183,30 @@ function build_admin_email_notice($email_assoc)
      * received: Email Address of the recipient of this email
      */
     // Make a switch statement for the days value and Bootstrap class for urgency status
-    $b_class = null;
+    $color = null;
 
     switch (strtolower($email_assoc["urgency"]))
     {
         case "high":
             {
-                $b_class = "text-danger";
+                $color = "red";
                 break;   
             }
 
             case "medium":
             {
-                $b_class = "text-warning";
+                $color = "yellow";
                 break;
             }
 
             default:
             {
-                $b_class = "text-info";
+                $color = "green";
             }
     }
 
     // Prepare Urgency Span the template will contain
-    $urgency_span = "<span class='$b_class'>". strtoupper($email_assoc["urgency"]) ."</span>";
+    $urgency_span = "<span style='color: $color'>". strtoupper($email_assoc["urgency"]) ."</span>";
 
     // Grab Admin Message HTML Message
     $admin_message_template_string = file_get_contents("../email-templates/admin-message.html");
