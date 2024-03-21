@@ -1,6 +1,6 @@
 <?php 
 /** PHP File Responsible for loading environment variables when they are needed */
-require_once __DIR__ . '/vendor/autoload.php';
+require_once 'vendor/autoload.php';
 
 function loadEnvVarsWhenRequired()
 {

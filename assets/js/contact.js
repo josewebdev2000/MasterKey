@@ -133,13 +133,10 @@ function validateContactForm()
                     sendBtn.prop("disabled", true);
                 },
                 success: function (response) {
-                    displayFormSuccessAlert("form-alerts-container", response["success"]);
-                    
+                    displayFormSuccessAlert("form-alerts-container", response["success"]);  
                 },
                 error: function (xhr, status, error) {
-                    const errorJsonResponse = xhr.responseJSON;
-                    displayFormErrorAlert("form-alerts-container", errorJsonResponse["error"]);
-
+                    displayFormErrorAlert("form-alerts-container", xhr.responseJSON["error"]);
                 },
                 complete: function () {
                     // Enable Send Button To Avoid Request Before Response
