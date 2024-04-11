@@ -47,6 +47,11 @@ body
     background-color: rgba(252, 230, 214, 0.5);
 }
 
+.dark-peach-hero-2
+{
+    background-color: rgba(252, 221, 199, 0.5);
+}
+
 .transparent-hero
 {
     background-color: transparent;
@@ -137,10 +142,25 @@ body
     background-blend-mode: overlay;
 }
 
+.bg-img-light-orange-hue {
+    background-color: rgba(221, 208, 190, 0.704); /* Light Gray with 90% Opacity */
+    background-blend-mode: overlay;
+}
+
 
 .bg-lock-img
 {
     background-image: url("../img/locks.jpg");
+}
+
+.bg-heart-lock-img
+{
+    background-image: url("../img/heart-locks.jpg");
+}
+
+.bg-golden-key-img
+{
+    background-image: url("../img/golden-key.jpg");
 }
 
 .bg-circular-lock-img
