@@ -14,7 +14,7 @@ function mainContact()
 
 function initializeSummerNote()
 {
-    $('.summernote').summernote({
+    $('#request').summernote({
         height: 300,
         width: "100%",
         placeholder: "Write your request here"
