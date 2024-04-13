@@ -23,8 +23,9 @@
                     <a class="nav-link h5" href="privacy.php">Privacy</a>
                 </li>
             </ul>
-            <div class="text-center">
-                <a class="btn btn-primary btn-lg" href="register.php">Get Started</a>
+            <div id="auth-btn-group" class="btn-group d-flex flex-lg-row flex-column align-items-center" role="group" aria-label="Auth Links">
+                <a class="btn btn-info btn-lg" href="login.php">Login</a>
+                <a class="btn btn-primary btn-lg" href="register.php">Register</a>
             </div>
         </div>
     </nav>
