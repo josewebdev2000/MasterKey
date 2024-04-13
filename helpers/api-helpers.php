@@ -1,6 +1,8 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 /** PHP Reused code that has to do with dealing with external API services */
-require_once '../vendor/autoload.php';
+require_once __DIR__ . "/../vendor/autoload.php";
 
 // Set up Cloudinary Work Environment
 use Cloudinary\Cloudinary;

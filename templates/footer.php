@@ -67,6 +67,16 @@
                 echo '<script src="assets/js/privacy.js"></script>';
                 break;
             }
+
+            case "register.php":
+            {
+                echo '<script src="assets/js/register.js"></script>';
+            }
+
+            case "login.php":
+            {
+                echo '<script src="assets/js/login.js"></script>';
+            }
         }
         
     ?>
