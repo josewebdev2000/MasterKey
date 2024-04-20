@@ -12,6 +12,11 @@ body
     min-height: 100vh;
 }
 
+.h-100
+{
+    height: 100%;
+}
+
 #key-person-pic
 {
     width: 150px;
@@ -219,16 +224,40 @@ body
     transition: color 0.3s ease;
 }
 
+/* Adjust width for small devices */
+@media (max-width: 575px)
+{
+    #creds-shower
+    {
+        position: relative;
+        left: 2vw;
+    }
+}
+
 /* Adjust width for medium screens */
 @media (min-width: 576px) {
-    .hero{
+    .hero
+    {
         width: 75%;
+    }
+
+    #creds-shower
+    {
+        position: relative;
+        left: 13vw;
     }
 }
 
 /* Adjust width for large and larger screens */
 @media (min-width: 992px) {
-    .hero {
+    .hero 
+    {
         width: 50%;
+    }
+
+    #creds-shower
+    {
+        position: relative;
+        left: 25vw;
     }
 }

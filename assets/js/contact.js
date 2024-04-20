@@ -9,7 +9,7 @@ function mainContact()
     resetContactForm();
 
     // Validate the contact form
-    validateContactForm();
+    validateAndSubmitContactForm();
 }
 
 function initializeSummerNote()
@@ -33,7 +33,7 @@ function resetContactForm()
 }
 
 /** Write Code for Front-End Contact Form Validation and AJAX Sending */
-function validateContactForm()
+function validateAndSubmitContactForm()
 {
     // Validate the name input
     $("#name").on({
@@ -70,6 +70,7 @@ function validateContactForm()
         "summernote.blur": () => formControlBlurValidate("request")
     });
 
+    // Submit the form
     $("#contact-form").on("submit", function (e) {
 
         var doAjax = false;
@@ -126,16 +127,13 @@ function validateContactForm()
                 beforeSend: function () {
                     // Disable Send Button To Avoid Request Before Response
                     const sendBtn = $("#send");
-                    sendBtn.html(`
-                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                    <span class="sr-only">Loading...</span>
-                    `);
+                    sendBtn.html(loadingSpinner());
                     sendBtn.prop("disabled", true);
                 },
                 success: function (response) {
                     displayFormSuccessAlert("form-alerts-container", response["success"]);  
                 },
-                error: function (xhr, status, error) {
+                error: function (xhr) {
                     displayFormErrorAlert("form-alerts-container", xhr.responseJSON["error"]);
                 },
                 complete: function () {
@@ -146,29 +144,7 @@ function validateContactForm()
                 }
             });
         }
-
     });
-}
-
-function formControlFocusValidate(form_control_id)
-{
-    /** Execute when input element is on focus */
-    if ($(`#${form_control_id}`).hasClass("is-valid"))
-    {
-        $(`.valid-tooltip.${form_control_id}`).fadeIn();
-    }
-
-    if ($(`#${form_control_id}`).hasClass("is-invalid"))
-    {
-        $(`.invalid-tooltip.${form_control_id}`).fadeIn();
-    }
-}
-
-function formControlBlurValidate(form_control_id)
-{
-    /** Execute when input element is on blur */
-    $(`.valid-tooltip.${form_control_id}`).fadeOut();
-    $(`.invalid-tooltip.${form_control_id}`).fadeOut();
 }
 
 function nameValidate() 
@@ -278,35 +254,6 @@ function requestValidate()
         $(".invalid-tooltip.request").text("");
         $("#request").addClass("is-valid");
     }
-}
-
-function displayFormErrorAlert(alert_container_id ,error_msg)
-{
-    // Create Error Alert
-    const eAlert = $(errorAlert(error_msg));
-
-    // Append the alert to the container
-    $(`#${alert_container_id}`).append(eAlert);
-
-    // Fade in the alert in 150 mls
-    setTimeout(() => eAlert.addClass("show"), 150);
-}
-
-function displayFormSuccessAlert(alert_container_id, success_msg)
-{
-    // Create Success Alert
-    const sAlert = $(successAlert(success_msg));
-
-    // Append the alert to the container
-    $(`#${alert_container_id}`).append(sAlert);
-
-    // Fade in the alert in 150 mls
-    setTimeout(() => sAlert.addClass("show"), 150);
-}
-
-function removeAlertFromContainer(alert_container_id, alert_selector)
-{
-    $(`#${alert_container_id}`).find(alert_selector).remove();
 }
 
 $(document).ready(mainContact);

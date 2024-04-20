@@ -7,9 +7,13 @@
     <!--JS Constants-->
     <script src="assets/js/constants.js"></script>
 
+    <!--JS Helpers-->
+    <script src="assets/js/helpers.js"></script>
+
     <!--JS Snippets-->
     <script src="assets/js/snippets/alerts/error.js"></script>
     <script src="assets/js/snippets/alerts/success.js"></script>
+    <script src="assets/js/snippets/spinners/loading.js"></script>
 
     <!--JS Classes-->
     <script src="assets/js/oop/ScrollToTopBtn.js"></script>
@@ -41,11 +45,13 @@
             case "register.php":
             {
                 echo '<script src="assets/js/register.js"></script>';
+                break;
             }
 
             case "login.php":
             {
                 echo '<script src="assets/js/login.js"></script>';
+                break;
             }
         }
         

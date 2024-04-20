@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 // Enable displaying errors
 ini_set('display_errors', 1);*/
 
-require_once "../envs.php";
+require_once __DIR__ . "/../envs.php";
 
 // Load envs
 loadEnvVarsWhenRequired();

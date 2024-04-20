@@ -6,6 +6,20 @@ function is_valid_id_param($id_param)
     return isset($id_param) && is_numeric($id_param);
 }
 
+function delete_file($file_path)
+{
+    // Delete a file
+    if (file_exists($file_path))
+    {
+        if (unlink($file_path))
+        {
+            return true;
+        }
+    }
+
+    return false;
+}
+
 function has_exact_keys($assoc_arr, $expected_keys)
 {
     // Return true if the assoc array has the expected arrays
@@ -18,5 +32,11 @@ function has_exact_keys($assoc_arr, $expected_keys)
 
     // Compare the sorted arrays
     return $array_keys === $expected_keys;
+}
+
+function hash_password($password)
+{
+    // Return password hash
+    return password_hash($password, PASSWORD_BCRYPT, ["cost" => 12]);
 }
 ?>
