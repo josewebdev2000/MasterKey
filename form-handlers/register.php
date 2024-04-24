@@ -90,30 +90,6 @@ function validate_username_for_register($username)
     }
 }
 
-function generate_new_password() 
-{
-
-    // Define the character set for the password
-    $charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-
-    // Initialize the password
-    $password = '';
-
-    // Generate the password
-    while (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{12,}$/', $password)) 
-    {
-        $password = '';
-
-        // Generate random characters from the character set
-        for ($i = 0; $i < 12; $i++) 
-        {
-            $password .= $charset[random_int(0, strlen($charset) - 1)];
-        }
-    }
-
-    return $password;
-}
-
 function generate_new_tokens()
 {
 
@@ -156,19 +132,6 @@ function generate_new_token_file($tokens)
     }
 
     return $token_name;
-}
-
-function encode_token_file_in_base64($tokenFileName)
-{
-    $encoded_file_content = "";
-
-    // Read contents of file
-    $file_content = file_get_contents($tokenFileName);
-
-    // Encode the content in base 64
-    $encoded_file_content = base64_encode($file_content);
-
-    return $encoded_file_content;
 }
 
 ?>

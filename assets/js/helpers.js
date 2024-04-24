@@ -1,4 +1,30 @@
 /** Code used throughout all scripts */
+function usernameValidate()
+{
+    const curUserName = $("#username").val();
+
+    if (curUserName.trim().length == 0)
+    {
+        $("#username").removeClass("is-valid");
+        $("#username").addClass("is-invalid");
+        $(".invalid-tooltip.username").text("Username cannot be empty");
+    }
+
+    else if (!userNameRegex.test(curUserName.trim()))
+    {
+        $("#username").removeClass("is-valid");
+        $("#username").addClass("is-invalid");
+        $(".invalid-tooltip.username").text("Username cannot have special symbols");
+    }
+
+    else
+    {
+        $("#username").removeClass("is-invalid");
+        $(".invalid-tooltip.username").text("");
+        $("#username").addClass("is-valid");
+    }
+}
+
 function formControlFocusValidate(form_control_id)
 {
     /** Execute when input element is on focus */

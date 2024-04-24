@@ -63,10 +63,12 @@ function validateAndSubmitRegisterForm()
             else
             {
                 doAjax = false;
+
                 if ($("#form-alerts-container").children().length < 1)
                 {
                     displayFormErrorAlert("form-alerts-container", "Register Form Needs To Be Properly Filled");
                 }
+
                 break;
             }
         }
@@ -77,7 +79,7 @@ function validateAndSubmitRegisterForm()
             // Grab the value of the username
             const username = $("#username").val();
 
-            // Form JSON string to send to the back-end
+            // Form JSON String to send to the back-end
             const data = JSON.stringify({
                 username
             });
@@ -125,9 +127,6 @@ function validateAndSubmitRegisterForm()
                     credsShower.removeClass("d-none");
                     credsShower.addClass("d-flex");
                     credsShower.fadeIn();
-
-
-
                 },
                 error: function (xhr) {
                     displayFormErrorAlert("form-alerts-container", xhr.responseJSON["error"]);
@@ -141,32 +140,6 @@ function validateAndSubmitRegisterForm()
             });
         }
     });
-}
-
-function usernameValidate()
-{
-    const curUserName = $("#username").val();
-
-    if (curUserName.trim().length == 0)
-    {
-        $("#username").removeClass("is-valid");
-        $("#username").addClass("is-invalid");
-        $(".invalid-tooltip.username").text("Username cannot be empty");
-    }
-
-    else if (!userNameRegex.test(curUserName.trim()))
-    {
-        $("#username").removeClass("is-valid");
-        $("#username").addClass("is-invalid");
-        $(".invalid-tooltip.username").text("Username cannot have special symbols");
-    }
-
-    else
-    {
-        $("#username").removeClass("is-invalid");
-        $(".invalid-tooltip.username").text("");
-        $("#username").addClass("is-valid");
-    }
 }
 
 function agreeValidate()

@@ -30,7 +30,7 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <div class="form-group">
+                        <div class="form-group input-group">
                             <input class="form-control form-control-lg text-center" type="text" name="username" id="username" placeholder="Username">
                             <div class="valid-tooltip username">Username looks good</div>
                             <div class="invalid-tooltip username"></div>

@@ -106,4 +106,44 @@ function insert_new_user_into_db($username, $password, $token1, $token2)
     }
 }
 
+function login_user_to_db($username, $password)
+{
+    // Check if a username and password do exist in the DB
+    global $conn;
+
+    // Escape username and password to prevent SQLi
+    $username = $conn->real_escape_string($username);
+    $password = $conn->real_escape_string($password);
+
+    // Form the SQL query to grab the username and password stored in DB
+    $sql = "SELECT * FROM User WHERE username = '$username'";
+    $result = $conn->query($sql);
+
+    if ($result && $result->num_rows == 1)
+    {
+        // Grab username and password from result
+        $user_row = $result->fetch_assoc();
+
+        // Compare the entered password with the password hash in the DB
+        $is_password_correct = password_verify($password, $user_row["password_hash"]);
+
+        if ($is_password_correct)
+        {
+            return [
+                "id" => $user_row["id"]
+            ];
+        }
+
+        else
+        {
+            return ["error" => "Incorrect Credentials"];
+        }
+    }
+
+    else
+    {
+        return ["error" => "Incorrect Credentials"];
+    }
+}
+
 ?>
