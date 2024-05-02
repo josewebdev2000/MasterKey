@@ -19,6 +19,14 @@ function resetLoginForm()
     });
 }
 
+function startOutTokenModal(user_id)
+{
+    const tokenModal = new TokenModal("token-modal-container", "token-modal");
+    tokenModal.append_to_container();
+    tokenModal.show_modal();
+    tokenModal.handle_submit_to_backend(user_id, "form-alerts-container");
+}
+
 function validateAndSubmitLoginForm()
 {
     // Validate the username input
@@ -95,10 +103,13 @@ function validateAndSubmitLoginForm()
                     sendBtn.prop("disabled", true);
                 },
                 success: function(response) {
-                    displayFormSuccessAlert("form-alerts-container", "Login Form Was Successful Bro");
+
+                    // Start out modal to grab user tokens
+                    const { id } = response;
+                    startOutTokenModal(id);
                 },
                 error: function(xhr) {
-                    displayFormErrorAlert("form-alerts-container", "Login Failed Bro");
+                    displayFormErrorAlert("form-alerts-container", xhr.responseJSON["error"]);
                 },
                 complete: function() {
                     // Enable Send Button To Avoid Request Before Response

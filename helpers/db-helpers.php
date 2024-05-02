@@ -146,4 +146,45 @@ function login_user_to_db($username, $password)
     }
 }
 
+function are_user_tokens_correct($user_id, $tokens)
+{
+    // Check if the given tokens belong to the user of the given id
+    global $conn;
+
+    // Escape user id and tokens to prevent SQLi
+    $user_id = $conn->real_escape_string($user_id);
+    $token1 = $conn->real_escape_string($tokens["token1"]);
+    $token2 = $conn->real_escape_string($tokens["token2"]);
+
+    // Form the SQL query to look for the tokens of a specific user
+    $sql = "SELECT token1, token2 FROM TokenFile WHERE user_id = $user_id";
+    $result = $conn->query($sql);
+
+    // If the query was successful
+    if ($result && $result->num_rows == 1)
+    {
+        // Compare the given tokens with the tokens from the db
+        $tokens_row = $result->fetch_assoc();
+
+        $is_token_1_correct = password_verify($token1, $tokens_row["token1"]);
+        $is_token_2_correct = password_verify($token2, $tokens_row["token2"]);
+
+        // Return success only if both tokens are correct
+        if ($is_token_1_correct && $is_token_2_correct)
+        {
+            return true;
+        }
+
+        else
+        {
+            return false;
+        }
+    }
+
+    else
+    {
+        return false;
+    }
+}
+
 ?>

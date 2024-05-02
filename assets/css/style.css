@@ -32,6 +32,11 @@ body
     display: none;
 }
 
+.opaque-modal
+{
+    background-color: rgba(0,0,0,0.6);
+}
+
 .gray-hero
 {
     background-color: rgba(255, 255, 255, 0.604);

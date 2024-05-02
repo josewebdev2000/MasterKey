@@ -75,6 +75,29 @@ function removeAlertFromContainer(alert_container_id, alert_selector)
     $(`#${alert_container_id}`).find(alert_selector).remove();
 }
 
+function encodeTextFileToBase64(textFileObj)
+{
+    /** Encode the decoded text context of a text file to Base 64 */
+    /** Call this function at the "change" event handler of your input[type="file"] */
+
+    // Read the contents of the file
+    const textFileReader = new FileReader();
+    textFileReader.readAsText(textFileObj);
+
+    // Make an async promise to allow the content of the file to be returned
+    const readFilePromise = new Promise(function (resolve, reject) {
+        textFileReader.addEventListener("loadend", function () {
+            const base64content = window.btoa(textFileReader.result);
+            resolve(base64content);
+        });
+        textFileReader.addEventListener("error", function () {
+            reject(`Could not encode file of name: ${textFileObj.name}`);
+        });
+    });
+
+    return readFilePromise;
+}
+
 function decodeBase64TextFile(encodedTextFile, fileName)
 {
     /** Decode the encoded text content in Base64 of a text file

@@ -18,6 +18,7 @@
     <!--JS Classes-->
     <script src="assets/js/oop/ScrollToTopBtn.js"></script>
     <script src="assets/js/oop/BtnGroupResponsive.js"></script>
+    <script src="assets/js/oop/TokenModal.js"></script>
 
     <!--Page Scripts-->
     <script src="assets/js/index.js"></script>

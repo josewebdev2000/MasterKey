@@ -1,5 +1,17 @@
 <?php require_once "templates/header.php"; ?>
 <?php require_once "templates/main-header.php"; ?>
+<?php
+
+// Detect Post Request
+require_once "helpers/index.php";
+
+if (is_post_request())
+{
+    $user_id = $_POST["user-id"];
+    var_dump($user_id);
+}
+
+?>
 
 <main class="container-fluid bg-img-container bg-golden-key-img bg-img-light-orange-hue flex-065">
     <div class="row">
@@ -67,8 +79,15 @@
         </div>
     </div>
 
-    <div class="" id="hidden-elements">
+    <div id="token-modal-container">
         
+    </div>
+
+    <div id="hidden-elements" class="d-none">
+        <form action="login.php" method="POST">
+            <input type="number" name="user-id">
+            <input type="submit" name="token-submit" value="submit">
+        </form>
     </div>
 
 </main>
