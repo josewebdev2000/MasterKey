@@ -35,6 +35,31 @@ function is_username_in_db($username)
 
 }
 
+function is_id_in_db($id)
+{
+    global $conn;
+    
+    // Escape id to prevent SQLi
+    $id = $conn->real_escape_string($id);
+
+    // Build SQL query to get id from User Table
+    $sql = "SELECT id FROM User WHERE id = $id";
+
+    // Execute the query
+    $result = $conn->query($sql);
+
+    // If the number of rows is greater than 0, the user exists
+    if ($result->num_rows > 0)
+    {
+        return true;
+    }
+
+    else
+    {
+        return false;
+    }
+}
+
 function insert_new_user_into_db($username, $password, $token1, $token2)
 {
     // Insert a New User to DB and along with its tokens

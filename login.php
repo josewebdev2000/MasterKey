@@ -1,17 +1,24 @@
 <?php require_once "templates/header.php"; ?>
-<?php require_once "templates/main-header.php"; ?>
 <?php
 
 // Detect Post Request
-require_once "helpers/index.php";
+require_once __DIR__ . "/helpers/index.php";
 
 if (is_post_request())
 {
     $user_id = $_POST["user-id"];
-    var_dump($user_id);
+    
+    // Initialize a new session and go to dashboard if the given id is in the db
+    if (is_id_in_db($user_id))
+    {
+        $_SESSION["id"] = $user_id;
+        $website_url = getWebsiteUrl();
+        header("Location: $website_url/dashboard/index.php");
+    }
 }
 
 ?>
+<?php require_once "templates/main-header.php"; ?>
 
 <main class="container-fluid bg-img-container bg-golden-key-img bg-img-light-orange-hue flex-065">
     <div class="row">

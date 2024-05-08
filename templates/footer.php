@@ -1,29 +1,34 @@
-    <script src="assets/dist/js/adminlte.js?v=3.2.0"></script>
+<?php require_once __DIR__ . "/../helpers/index.php";
+
+$websiteURL = getWebsiteUrl();
+
+?>    
+    <script src="<?=$websiteURL?>/assets/dist/js/adminlte.js?v=3.2.0"></script>
 
     <!--script src="assets/dist/js/pages/dashboard.js"></script-->
 
     <!--Custom Scripts-->
 
     <!--JS Constants-->
-    <script src="assets/js/constants.js"></script>
+    <script src="<?=$websiteURL?>/assets/js/constants.js"></script>
 
     <!--JS Helpers-->
-    <script src="assets/js/helpers.js"></script>
+    <script src="<?=$websiteURL?>/assets/js/helpers.js"></script>
 
     <!--JS Snippets-->
-    <script src="assets/js/snippets/alerts/error.js"></script>
-    <script src="assets/js/snippets/alerts/success.js"></script>
-    <script src="assets/js/snippets/spinners/loading.js"></script>
+    <script src="<?=$websiteURL?>/assets/js/snippets/alerts/error.js"></script>
+    <script src="<?=$websiteURL?>/assets/js/snippets/alerts/success.js"></script>
+    <script src="<?=$websiteURL?>/assets/js/snippets/spinners/loading.js"></script>
 
     <!--JS Classes-->
-    <script src="assets/js/oop/ScrollToTopBtn.js"></script>
-    <script src="assets/js/oop/BtnGroupResponsive.js"></script>
-    <script src="assets/js/oop/TokenModal.js"></script>
+    <script src="<?=$websiteURL?>/assets/js/oop/ScrollToTopBtn.js"></script>
+    <script src="<?=$websiteURL?>/assets/js/oop/BtnGroupResponsive.js"></script>
+    <script src="<?=$websiteURL?>/assets/js/oop/TokenModal.js"></script>
 
     <!--Page Scripts-->
-    <script src="assets/js/index.js"></script>
+    <script src="<?=$websiteURL?>/assets/js/index.js"></script>
 
-    <?php require_once "helpers/index.php";
+    <?php require_once __DIR__ . "/../helpers/index.php";
 
         // Grab the name of the current page
         $currentPage = getActualPageName();
@@ -33,25 +38,25 @@
         {
             case "contact.php":
             {
-                echo '<script src="assets/js/contact.js"></script>';
+                echo "<script src='$websiteURL/assets/js/contact.js'></script>";
                 break;
             }
 
             case "privacy.php":
             {
-                echo '<script src="assets/js/privacy.js"></script>';
+                echo "<script src='$websiteURL/assets/js/privacy.js'></script>";
                 break;
             }
 
             case "register.php":
             {
-                echo '<script src="assets/js/register.js"></script>';
+                echo "<script src='$websiteURL/assets/js/register.js'></script>";
                 break;
             }
 
             case "login.php":
             {
-                echo '<script src="assets/js/login.js"></script>';
+                echo "<script src='$websiteURL/assets/js/login.js'></script>";
                 break;
             }
         }

@@ -7,7 +7,7 @@ function getActualPageName()
 
 function getWebsiteUrl()
 {
-    return "http://locahost/projects/master-password-manager/";
+    return "http://localhost/projects/master-password-manager";
 }
 
 ?>
