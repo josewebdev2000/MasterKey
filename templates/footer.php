@@ -3,7 +3,9 @@
 $websiteURL = getWebsiteUrl();
 
 ?>    
+    <!--Dependency DOM Scripts-->
     <script src="<?=$websiteURL?>/assets/dist/js/adminlte.js?v=3.2.0"></script>
+    <script src="<?=$websiteURL?>/assets/plugins/cookiealert/cookiealert.js"></script>
 
     <!--script src="assets/dist/js/pages/dashboard.js"></script-->
 

@@ -44,6 +44,8 @@ if (isset($_COOKIE["user-id"]) && !isset($_SESSION["id"]))
 
     <link rel="stylesheet" href="<?=$websiteURL?>/assets/plugins/summernote/summernote-bs4.min.css">
 
+    <link rel="stylesheet" href="<?=$websiteURL?>/assets/plugins/cookiealert/cookiealert.css">
+
     <!--Custom Stylesheets-->
     <link rel="stylesheet" href="<?=$websiteURL?>/assets/css/style.css">
 
