@@ -16,7 +16,7 @@ if (is_post_request())
     // Grab username, password, and rememberMe
     $username = isset($login_data["username"]) ? $login_data["username"] : "";
     $password = isset($login_data["password"]) ? $login_data["password"] : "";
-    $rememberMe = isset($login_data["rememberMe"]) ? $login_data["rememberMe"] : null;
+    $rememberMe = isset($login_data["rememberMe"]) ? $login_data["rememberMe"] : NULL;
 
     // Validate username and password
     $username_val_assoc = validate_username_for_login($username);
@@ -36,6 +36,12 @@ if (is_post_request())
 
     // Perform a login attempt
     $login_assoc = login_user_to_db($username, $password);
+
+    // Add remember me key to login assoc
+    if ($rememberMe != NULL)
+    {
+        $login_assoc["rememberMe"] = $rememberMe;
+    }
 
     /** Include Code for Cookies Later On */
 

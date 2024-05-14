@@ -10,7 +10,7 @@
 
     <!--Sticky Btn Group-->
     <div class="row sticky-top">
-        <div id="privacy-navbar-container" class="col-12 mb-4 d-flex justify-content-lg-center justify-content-end">
+        <div id="privacy-navbar-container" class="col-12 mb-4 d-flex justify-content-lg-center justify-content-end" style="z-index: -1;">
             <nav class="navbar navbar-expand-lg navbar-light transparent-hero d-flex justify-content-lg-center justify-content-end" id="privacy-navbar">
                 <button id="privacy-sections-toggler" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>

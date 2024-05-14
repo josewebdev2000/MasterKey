@@ -19,12 +19,12 @@ function resetLoginForm()
     });
 }
 
-function startOutTokenModal(user_id)
+function startOutTokenModal(user_id, rememberMe)
 {
     const tokenModal = new TokenModal("token-modal-container", "token-modal");
     tokenModal.append_to_container();
     tokenModal.show_modal();
-    tokenModal.handle_submit_to_backend(user_id, "form-alerts-container");
+    tokenModal.handle_submit_to_backend(user_id, rememberMe, "form-alerts-container");
 }
 
 function validateAndSubmitLoginForm()
@@ -105,8 +105,8 @@ function validateAndSubmitLoginForm()
                 success: function(response) {
 
                     // Start out modal to grab user tokens
-                    const { id } = response;
-                    startOutTokenModal(id);
+                    const { id, rememberMe } = response;
+                    startOutTokenModal(id, rememberMe);
                 },
                 error: function(xhr) {
                     displayFormErrorAlert("form-alerts-container", xhr.responseJSON["error"]);

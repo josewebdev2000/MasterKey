@@ -4,16 +4,31 @@
 // Detect Post Request
 require_once __DIR__ . "/helpers/index.php";
 
+$websiteURL = getWebsiteUrl();
+
+if (isset($_SESSION["id"]))
+{
+    header("Location: $websiteURL");
+}
+
 if (is_post_request())
 {
     $user_id = $_POST["user-id"];
+    $rememberMe = $_POST["rememberMe"];
     
     // Initialize a new session and go to dashboard if the given id is in the db
     if (is_id_in_db($user_id))
     {
         $_SESSION["id"] = $user_id;
-        $website_url = getWebsiteUrl();
-        header("Location: $website_url/dashboard/index.php");
+
+        // If the user wants to be remembered, create a cookie for him
+        if ($rememberMe)
+        {
+            create_user_cookie($user_id);
+        }
+
+        // Redirect the user to the dashboard page
+        header("Location: $websiteURL/dashboard/index.php");
     }
 }
 
@@ -93,6 +108,7 @@ if (is_post_request())
     <div id="hidden-elements" class="d-none">
         <form action="login.php" method="POST">
             <input type="number" name="user-id">
+            <input type="checkbox" name="rememberMe">
             <input type="submit" name="token-submit" value="submit">
         </form>
     </div>

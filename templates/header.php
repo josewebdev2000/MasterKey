@@ -3,6 +3,12 @@
 session_start();
 
 $websiteURL = getWebsiteUrl();
+
+// Check if user cookie is set, if it is, set a user session
+if (isset($_COOKIE["user-id"]) && !isset($_SESSION["id"]))
+{
+    $_SESSION["id"] = $_COOKIE["user-id"];
+}
 ?>
 
 <!DOCTYPE html>

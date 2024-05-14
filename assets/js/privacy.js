@@ -41,8 +41,6 @@ function manageStylesOfPrivacySections()
     // Grab the current screen width
     const newScreenWidth = $(window).width();
 
-    console.log(newScreenWidth);
-
     // Grab Button Group Element
     const privacyNavBarContainer = $("#privacy-navbar-container");
     const privacyNavBar = $("#privacy-navbar");

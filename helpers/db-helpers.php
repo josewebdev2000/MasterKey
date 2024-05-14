@@ -131,6 +131,39 @@ function insert_new_user_into_db($username, $password, $token1, $token2)
     }
 }
 
+function get_user_by_id($id)
+{
+    // Grab all info related to a user by the id
+    global $conn;
+
+    // Ensure ID is a number to prevent SQLi
+    $id = (isset($id) && is_numeric($id)) ? $id : NULL;
+
+    if ($id == NULL)
+    {
+        return ["error" => "Invalid id"];
+    }
+
+    // Prepare SQL query
+    $sql = "SELECT * FROM User WHERE id = $id";
+
+    // Execute the query
+    $result = $conn->query($sql);
+
+    // Only if there is one result
+    if ($result && $result->num_rows == 1)
+    {
+        // Return user data
+        $user_data = $result->fetch_assoc();
+        return $user_data;
+    }
+
+    else
+    {
+        return ["error" => "Could not fetch data of user of id $id"];
+    }
+}
+
 function login_user_to_db($username, $password)
 {
     // Check if a username and password do exist in the DB

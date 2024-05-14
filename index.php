@@ -1,11 +1,8 @@
 <?php require_once "templates/header.php"; ?>
 <?php
     require_once __DIR__ . "/helpers/index.php";
-    // Check the session id is set and it is valid
-    $id = $_SESSION["id"];
-
     // Redirect to main page if user id session isn't set well
-    if ((isset($id) && is_id_in_db($id)))
+    if ((isset($_SESSION["id"])))
     {
         $websiteURL = getWebsiteUrl();
         header("Location: $websiteURL/dashboard/index.php");
@@ -15,7 +12,7 @@
 
 <main class="container-fluid bg-img-container bg-lock-img bg-img-bluish-hue flex-065 d-flex justify-content-center align-items-center">
   <div class="py-5 px-5 text-center m-5 hero gray-hero">
-          <img class="d-block mx-auto mb-4 img-fluid" id="key-person-pic" src="assets/img/key-person.png" alt="Key Person Image">
+          <img class="d-block mx-auto mb-4 img-fluid" id="key-person-pic" src="<?=$websiteURL?>/assets/img/key-person.png" alt="Key Person Image">
           <h1 class="display-5 fw-bold">MasterKey Password Manager</h1>
           <div class="col-lg-6 mx-auto">
             <p class="lead fsize-150">Are you the kind of person that always forget his/her credentials?</p>

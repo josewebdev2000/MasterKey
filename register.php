@@ -1,5 +1,18 @@
 <?php require_once "templates/header.php"; ?>
 <?php require_once "templates/main-header.php"; ?>
+<?php
+
+// Detect Post Request
+require_once __DIR__ . "/helpers/index.php";
+
+$websiteURL = getWebsiteUrl();
+
+if (isset($_SESSION["id"]))
+{
+    header("Location: $websiteURL");
+}
+
+?>
 
 <main class="container-fluid bg-img-container bg-golden-key-img bg-img-light-orange-hue flex-065">
     <div class="row">

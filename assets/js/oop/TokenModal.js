@@ -61,7 +61,7 @@ class TokenModal
         $(`#${this.modal_id}`).modal("show");
     }
 
-    handle_submit_to_backend(user_id, error_msg_container_id)
+    handle_submit_to_backend(user_id, rememberMe, error_msg_container_id)
     {
         const self = this;
 
@@ -146,10 +146,18 @@ class TokenModal
                         tokenFileBtnSubmit.html(loadingSpinner());
                         tokenFileBtnSubmit.prop("disabled", true);
                     },
-                    success: function(response) {
+                    success: function() {
                         // Send traditional request to log in
                         // Grab the user-id input and place the user-id there
                         $("input[name='user-id']").val(user_id);
+
+                        // Place remember me for cookie generation if appropriate
+                        if (rememberMe)
+                        {
+                            $("input[name='rememberMe']").prop("checked", true);
+                        }
+
+                        // Submit the form for traditional session start
                         $("input[name='token-submit']").trigger("click");
                     },
                     error: function(xhr) {
