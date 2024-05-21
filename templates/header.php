@@ -1,12 +1,17 @@
 <?php require_once __DIR__ . "/../helpers/index.php";
+require_once __DIR__ . "/../envs.php";
+
 // Start sessions out
 session_start();
 
+// Load environs
+loadEnvVarsWhenRequired();
+
 // Set up cookie encryption method
-$cookieEncryptionMethod = 'AES-256-CBC';
+$cookieEncryptionMethod = $_ENV["COOKIE_ENC_METHOD"];
 
 // Generate a cookie encryption key
-$cookieEncryptionKey = "sjdfn984YEGUYksdnfgk9834kjngiu";
+$cookieEncryptionKey = $_ENV["COOKIE_ENC_KEY"];
 
 $websiteURL = getWebsiteUrl();
 
