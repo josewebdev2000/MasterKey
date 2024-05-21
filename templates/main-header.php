@@ -21,7 +21,13 @@ if (isset($_SESSION["id"]))
         <div class="collapse navbar-collapse" id="navbar-content-collapse">
             <ul class="navbar-nav ml-auto mr-auto mt-2 mt-lg-0 text-center">
                 <li class="nav-item">
-                    <a class="nav-link h5" href="index.php">Home</a>
+                    <a class="nav-link h5" href="index.php">
+                        <?php if (isset($_SESSION["id"])):?>
+                            Dashboard
+                        <?php else:?>
+                            Home
+                        <?php endif;?>
+                    </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link h5" href="about.php">About</a>
