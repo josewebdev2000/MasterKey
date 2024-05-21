@@ -21,10 +21,10 @@ if (is_post_request())
     {
         $_SESSION["id"] = $user_id;
 
-        // If the user wants to be remembered, create a cookie for him
+        // If the user wants to be remembered, create a cookie for him/her
         if ($rememberMe)
         {
-            create_user_cookie($user_id);
+            create_user_cookie($user_id, $cookieEncryptionMethod, $cookieEncryptionKey);
         }
 
         // Redirect the user to the dashboard page

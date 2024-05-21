@@ -2,12 +2,30 @@
 // Start sessions out
 session_start();
 
+// Set up cookie encryption method
+$cookieEncryptionMethod = 'AES-256-CBC';
+
+// Generate a cookie encryption key
+$cookieEncryptionKey = "sjdfn984YEGUYksdnfgk9834kjngiu";
+
 $websiteURL = getWebsiteUrl();
 
 // Check if user cookie is set, if it is, set a user session
 if (isset($_COOKIE["user-id"]) && !isset($_SESSION["id"]))
 {
-    $_SESSION["id"] = $_COOKIE["user-id"];
+    // Check it is a number
+    $cookie_user_id = get_decrypted_cookie_value(
+        $cookieEncryptionMethod, 
+        $cookieEncryptionKey, 
+        $_COOKIE["user-id"]
+    );
+
+    if ($cookie_user_id)
+    {
+        $_SESSION["id"] = $cookie_user_id;
+    }
+
+    echo is_numeric($cookie_user_id);
 }
 ?>
 
@@ -50,7 +68,6 @@ if (isset($_COOKIE["user-id"]) && !isset($_SESSION["id"]))
     <link rel="stylesheet" href="<?=$websiteURL?>/assets/css/style.css">
 
     <!--Dependency Scripts-->
-
     <script src="<?=$websiteURL?>/assets/plugins/jquery/jquery.min.js"></script>
 
     <script src="<?=$websiteURL?>/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
