@@ -1,5 +1,5 @@
 <?php 
-
+/** PHP Reusable Functions made to aid with operations related to Web Pages */
 function getActualDomain()
 {
     return $_SERVER["SERVER_NAME"];

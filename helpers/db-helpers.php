@@ -164,6 +164,38 @@ function get_user_by_id($id)
     }
 }
 
+function get_num_table_rows($table_name)
+{
+    /** Get the number of entries of a DB table */
+    global $conn;
+
+    // Prevent SQLi by escaping table name
+    $table_name = $conn->real_escape_string($table_name);
+
+    if (!isset($table_name) || strlen($table_name) == 0)
+    {
+        return ["error" => "Invalid Table Name"];
+    }
+
+    // Build SQL query
+    $sql = "SELECT COUNT(*) FROM $table_name";
+
+    // Execute the query
+    $result = $conn->query($sql);
+
+    if ($result)
+    {
+        $num_rows = $result->fetch_assoc();
+        return $num_rows["COUNT(*)"];
+    }
+
+    else
+    {
+        return ["error" => "Could not find number of entries of table $table_name"];
+    }
+
+}
+
 function login_user_to_db($username, $password)
 {
     // Check if a username and password do exist in the DB

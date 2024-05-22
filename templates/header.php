@@ -25,12 +25,15 @@ if (isset($_COOKIE["user-id"]) && !isset($_SESSION["id"]))
         $_COOKIE["user-id"]
     );
 
-    if ($cookie_user_id)
+    if (is_valid_id_param($cookie_user_id))
     {
         $_SESSION["id"] = $cookie_user_id;
     }
+}
 
-    echo is_numeric($cookie_user_id);
+if (isset($_SESSION["id"]))
+{
+    $user = get_user_by_id($_SESSION["id"]);
 }
 ?>
 

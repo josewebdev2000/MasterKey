@@ -1,8 +1,3 @@
-<?php require_once __DIR__ . "/../../helpers/index.php";
-    // Grab the username
-    $username = get_user_by_id($_SESSION["id"])["username"];
-?>
-
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <a href="<?=$websiteURL.'/dashboard/index.php';?>" class="brand-link logo-switch">
         <img src="<?=$websiteURL.'/assets/img/key.png'?>" alt="MasterKey Key Logo" class="brand-image">
@@ -11,10 +6,10 @@
     <div class="sidebar">
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img class="img-circle img-fluid elevation-3" width="128" src="<?=$websiteURL?>/assets/img/avatars/avatar-11.png" alt="Stuff">
+                <?php echo get_profile_pic_html_code($user, "img-circle img-fluid elevation-3", 64, "$websiteURL/assets/img/avatars/user.png"); ?>
             </div>
             <div class="info fsize-120">
-                <a href="#" class="d-block"><?=$username?></a>
+                <a href="#" class="d-block"><?=$user["username"]?></a>
             </div>
         </div>
         <nav class="mt-2">

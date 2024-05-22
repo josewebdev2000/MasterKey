@@ -1,11 +1,5 @@
 <?php require_once __DIR__ . "/../helpers/index.php";
 $websiteURL = getWebsiteUrl();
-
-// Get the username of the current user
-if (isset($_SESSION["id"]))
-{
-    $username = get_user_by_id($_SESSION["id"])["username"];
-}
 ?>
 
 <header>
@@ -45,10 +39,10 @@ if (isset($_SESSION["id"]))
                 <div class="d-flex flex-lg-row flex-column align-items-center">
                     <div class="dropdown">
                         <button class="btn btn-sm btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="img-circle img-fluid" width="64" src="<?=$websiteURL?>/assets/img/avatars/avatar-11.png" alt="Stuff">
+                            <?php echo get_profile_pic_html_code($user, "img-circle img-fluid", 64, "$websiteURL/assets/img/avatars/user.png"); ?>
                         </button>
                         <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton">
-                            <h6 class="dropdown-header fsize-150 text-white"><?=$username;?></h6>
+                            <h6 class="dropdown-header fsize-150 text-white"><?=$user["username"];?></h6>
                             <a class="dropdown-item user fsize-120" href="<?=$websiteURL?>/dashboard/">Dashboard</a>
                             <a class="dropdown-item user fsize-120" href="<?=$websiteURL?>/dashboard/account.php">Accounts</a>
                             <a class="dropdown-item user fsize-120" href="<?=$websiteURL?>/dashboard/profile.php">Profile</a>
