@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 // Enable displaying errors
 ini_set('display_errors', 1);
 
-require_once "../helpers/index.php";
+require_once __DIR__ . "/../helpers/index.php";
 
 /** Handle POST Request for Register Page */
 
@@ -100,38 +100,6 @@ function generate_new_tokens()
     $token2 = bin2hex(random_bytes(16));
 
     return [$token1, $token2];
-}
-
-function generate_new_token_file($tokens)
-{
-    // Store the new tokens in a tmp folder
-    $token1 = $tokens[0];
-    $token2 = $tokens[1];
-
-    // Have the content for the new token file
-    $token_file_content = "Token 1: $token1\nToken 2: $token2\n";
-
-    // Produce unique file name
-    $token_id = uniqid('', true);
-
-    // Generate file name
-    $token_name = "../tmp/token_files/tokens-$token_id.txt";
-
-    // Open new file stream
-    $token_file = fopen($token_name,"w");
-
-    // Try to write file
-    if ($token_file !== false)
-    {
-        // Write file
-        if (fwrite($token_file, $token_file_content))
-        {
-            // Close file
-            fclose($token_file);
-        }
-    }
-
-    return $token_name;
 }
 
 ?>

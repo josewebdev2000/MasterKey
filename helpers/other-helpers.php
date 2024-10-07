@@ -20,6 +20,38 @@ function delete_file($file_path)
     return false;
 }
 
+function generate_new_token_file($tokens)
+{
+    // Store the new tokens in a tmp folder
+    $token1 = $tokens[0];
+    $token2 = $tokens[1];
+
+    // Have the content for the new token file
+    $token_file_content = "Token 1: $token1\nToken 2: $token2\n";
+
+    // Produce unique file name
+    $token_id = uniqid('', true);
+
+    // Generate file name
+    $token_name = "../tmp/token_files/tokens-$token_id.txt";
+
+    // Open new file stream
+    $token_file = fopen($token_name,"w");
+
+    // Try to write file
+    if ($token_file !== false)
+    {
+        // Write file
+        if (fwrite($token_file, $token_file_content))
+        {
+            // Close file
+            fclose($token_file);
+        }
+    }
+
+    return $token_name;
+}
+
 function has_exact_keys($assoc_arr, $expected_keys)
 {
     // Return true if the assoc array has the expected arrays

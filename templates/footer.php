@@ -25,6 +25,7 @@ $websiteURL = getWebsiteUrl();
     <!--JS Classes-->
     <script src="<?=$websiteURL?>/assets/js/oop/ScrollToTopBtn.js"></script>
     <script src="<?=$websiteURL?>/assets/js/oop/BtnGroupResponsive.js"></script>
+    <script src="<?=$websiteURL?>/assets/js/oop/PicGridSelector.js"></script>
     <script src="<?=$websiteURL?>/assets/js/oop/TokenModal.js"></script>
 
     <!--Page Scripts-->
@@ -61,6 +62,10 @@ $websiteURL = getWebsiteUrl();
                 echo "<script src='$websiteURL/assets/js/login.js'></script>";
                 break;
             }
+
+            case "profile.php":
+                echo "<script src='$websiteURL/assets/js/profile.js'></script>";
+                break;
         }
         
     ?>
